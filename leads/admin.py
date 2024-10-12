@@ -8,7 +8,8 @@ from .models import Leads
 class LeadsAdmin(admin.ModelAdmin):
     list_display = (
         "id",
-        "contact_number",
+        "serialNumber",
+        "contactNumber",
         "name",
         "persons",
         "follow_up",

@@ -21,7 +21,8 @@ def get_lead(request, lead_id):
             lead = Leads.objects.get(id=lead_id)
             data = {
                 "id": lead.id,
-                "contact_number": lead.contact_number,
+                "serialNumber": lead.serialNumber,
+                "contactNumber": lead.contactNumber,
                 "name": lead.name,
                 "persons": lead.persons,
                 "follow_up": lead.follow_up,
@@ -44,7 +45,8 @@ def create_lead(request):
         try:
             body = json.loads(request.body)
             lead = Leads.objects.create(
-                contact_number=body.get("contact_number"),
+                serialNumber=body.get("serialNumber"),
+                contactNumber=body.get("contactNumber"),
                 name=body.get("name", None),
                 persons=body.get("persons", None),
                 follow_up=body.get("follow_up"),
@@ -69,7 +71,8 @@ def update_lead(request, lead_id):
         try:
             lead = Leads.objects.get(id=lead_id)
             body = json.loads(request.body)
-            lead.contact_number = body.get("contact_number", lead.contact_number)
+            lead.serialNumber = body.get("serialNumber", lead.serialNumber)
+            lead.contactNumber = body.get("contactNumber", lead.contactNumber)
             lead.name = body.get("name", lead.name)
             lead.persons = body.get("persons", lead.persons)
             lead.follow_up = body.get("follow_up", lead.follow_up)

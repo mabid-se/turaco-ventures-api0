@@ -1,0 +1,11 @@
+# Django-specific
+__pycache__/
+db.sqlite3
+media/
+static/
+*/__init__.py
+
+# Python-specific
+*.pyc
+*.pyo
+*.swp
